@@ -1,0 +1,4 @@
+rootProject.name = 'InventoryManagement'
+include 'data-library'
+include 'inventory-service'
+

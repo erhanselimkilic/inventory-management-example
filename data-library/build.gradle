@@ -1,0 +1,6 @@
+version = '0.0.1-SNAPSHOT'
+description = 'Common Library'
+
+bootJar {
+    enabled = false
+}

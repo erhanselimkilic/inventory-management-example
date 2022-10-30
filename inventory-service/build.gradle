@@ -1,0 +1,5 @@
+version = '0.0.1-SNAPSHOT'
+description = 'Inventory Service'
+
+apply from: "dependencies.gradle"
+

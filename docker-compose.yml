@@ -1,0 +1,28 @@
+version: "2.1"
+services:
+  mysql_db:
+    container_name: inventory-management-db
+    image: mysql:8.0
+    restart: always
+    healthcheck:
+      test: "exit 0"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: INVENTORY_DB
+      MYSQL_ROOT_PASSWORD: intAdmin.123
+      MYSQL_USER: intAdmin
+      MYSQL_PASSWORD: intAdmin.123
+
+  inventory_service:
+    depends_on:
+      mysql_db:
+        condition: service_healthy
+    container_name: inventory-service
+    image: inventory-service:0.0.1
+    build:
+      context: ./inventory-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
